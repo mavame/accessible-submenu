@@ -180,7 +180,7 @@ var AccessibleSubmenu = function () {
       // the submenu menu
       submenuSelector: '.js-submenu',
 
-      // apply this class to the el when submenu is open
+      // this class will be applied to the root element when submenu is open
       stylingClass: 'js-submenu-expanded',
 
       // apple aria-current="page" to links that point to the current page
