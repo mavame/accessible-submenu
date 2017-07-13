@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dt Accessible Menu Example</title>
+  <style>
+    nav > ul > li > ul {
+      display: none;
+    }
+
+    nav > ul > li > a[aria-expanded="true"] + ul {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li id="make-me-expand">
+        <a href="http://google.com">Top search engine</a>
+        <a href="#" class="js-submenu-expand">Expand to see more search engines</a>  
+        <ul class="js-submenu">
+          <li><a href="http://msn.com">MSN</a></li>
+          <li><a href="http://yahoo.com">Yahoo</a></li>
+          <li><a href="http://bing.com">Bing</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <script src="accessible-submenu.js"></script>
+  <script>
+      var expand = AccessibleSubmenu(document.getElementById('make-me-expand'));
+  </script>
+</body>
+</html>
