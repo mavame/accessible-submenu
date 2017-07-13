@@ -1,4 +1,4 @@
-# dt-flyout
+# Accessible Sub Menus
 
 Make your dropdown menus accessible
 
@@ -7,7 +7,7 @@ Make your dropdown menus accessible
 - Best practices based on [eBay MIND Patterns Fake Menu](https://ebay.gitbooks.io/mindpatterns/content/navigation/fakemenu.html)
 - Screen reader accessible
 - Customizable behavior
-- Small and lightweight (~2K minified/gzipped)
+- Small and lightweight (~2K minizipped)
 
 ## Before Javascript
 
@@ -35,10 +35,10 @@ Include in your HTML file:
 Or, using ES6:
 
 ```javascript
-const DtFlyout = require('dt-flyout');
+const AccessibleSubmenu = require('dt-flyout');
 
 const li = document.querySelector('li');
-const expand = DtFlyout(li, options);
+const expand = AccessibleSubmenu(li, options);
 ```
 
 ## After Javascript
@@ -147,13 +147,13 @@ All options are optional.
 **Using Options**
 
 ```javascript
-const DtFlyout = require('dt-flyout');
+const AccessibleSubmenu = require('dt-flyout');
 
 const li = document.querySelector('li');
 const options = {
   closeOnTabOut: false
 };
-const expand = DtFlyout(li, options);
+const expand = AccessibleSubmenu(li, options);
 ```
 
 **Methods**
