@@ -1,13 +1,8 @@
-# Accessible Sub Menus
+# Accessible Submenus
 
-Make your dropdown menus accessible
+Make your dropdown menus accessible!
 
-## Features
-
-- Best practices based on [eBay MIND Patterns Fake Menu](https://ebay.gitbooks.io/mindpatterns/content/navigation/fakemenu.html)
-- Screen reader accessible
-- Customizable behavior
-- Small and lightweight (~2K minizipped)
+Screen reader accessible, customizable behavior, and small and lightweight footprint (~2K minizipped), and best practices based on eBay's [MIND Patterns Fake Menu](https://ebay.gitbooks.io/mindpatterns/content/navigation/fakemenu.html).
 
 ## Before Javascript
 
@@ -15,30 +10,13 @@ Make your dropdown menus accessible
 <!-- Regular markup before javascript -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <a href="#" class="js-dt-flyout-expand">Expand to see more search engines</a>  
-  <ul class="js-dt-flyout">
+  <a href="#" class="js-submenu-expand">Expand to see more search engines</a>  
+  <ul class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
     <li><a href="http://bing.com">Bing</a></li>
   </ul>
 </li>
-```
-
-## Use Javascript
-
-Include in your HTML file:
-
-```html
-<script src="dt-flyout.min.js"></script>
-```
-
-Or, using ES6:
-
-```javascript
-const AccessibleSubmenu = require('dt-flyout');
-
-const li = document.querySelector('li');
-const expand = AccessibleSubmenu(li, options);
 ```
 
 ## After Javascript
@@ -47,8 +25,8 @@ const expand = AccessibleSubmenu(li, options);
 <!-- Markup after javascript has run -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <a role="button" href="#" aria-expanded="false" class="js-dt-flyout-expand">Expand Menu</a>
-  <ul id="js-dt-flyout-8j6kl" class="js-dt-flyout">
+  <a role="button" href="#" aria-expanded="false" class="js-submenu-expand">Expand Menu</a>
+  <ul id="js-submenu-8j6kl" class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
     <li><a href="http://bing.com">Bing</a></li>
@@ -64,20 +42,22 @@ Pressing ENTER or SPACEBAR on the button (or clicking on the button) will expand
 
 Hitting ESC while the flyout is open will close the flyout.
 
-When the expandable menu should be open, the button will have get `aria-expanded="true"` attribute. Also, it's `aria-controls` attribute will be present. **You should use your own CSS to show the flyout.**
+When the expandable menu should be open, the button will have get `aria-expanded="true"` attribute. Also, it's `aria-controls` attribute will be present.
 
 ```html
 <!-- Open menu state -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <a role="button" href="#" aria-expanded="false" aria-controls="sub-menu-8j6kl" class="js-dt-flyout-expand">Expand Menu</a>
-  <ul id="js-dt-flyout-8j6kl" class="js-dt-flyout">
+  <a role="button" href="#" aria-expanded="false" aria-controls="sub-menu-8j6kl" class="js-submenu-expand">Expand Menu</a>
+  <ul id="js-submenu-8j6kl" class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
     <li><a href="http://bing.com">Bing</a></li>
   </ul>
 </li>
 ```
+
+**You should use your own CSS to show the flyout.**
 
 ```css
 /* closed flyout */
@@ -93,97 +73,102 @@ li > ul {
 
 Of course you can use whatever CSS you like.
 
-## Options
+## Usage
+`AccessibleSubmenu(element, [options])`
 
-All options are optional.
+Pass in the list item (or some root element) and options.
 
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th style="text-align:center">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>buttonSelector</th>
-<td style="text-align:center"><code>.js-dt-expand</code></td>
-<td>A css selector that matches the HTML element that should be used as the toggle button. If not found, an anchor with a role of <code>button</code> will be created and inserted before the flyout.</td>
-</tr>
-<tr>
-<th>closeOnTabOut</th>
-<td style="text-align:center">true</td>
-<td>Tab key out of flyout will close flyout</td>
-</tr>
-<tr>
-<th>flyoutSelector</th>
-<td style="text-align:center"><code>.js-dt-flyout</code></td>
-<td>A css selector that matches the HTML element that should be used as the flyout menu. If not found, the first <code>&lt;ul&gt;</code> element will be used.</td>
-</tr>
-<tr>
-<th>focusFirstLink</th>
-<td style="text-align:center">true</td>
-<td>Whether or not to focus the first link when the flyout opens</td>
-</tr>
-<tr>
-<th>onClose</th>
-<td style="text-align:center">null</td>
-<td>Function to run when the menu is closed. Will recieve the instance as first parameter.</td>
-</tr>
-<tr>
-<th>onOpen</th>
-<td style="text-align:center">null</td>
-<td>Function to run when the menu is opened. Will recieve the instance as first parameter.</td>
-</tr>
-<tr>
-<th>stylingClass</th>
-<td style="text-align:center"><code>js-dt-flyout-open</code></td>
-<td>The top level list item will get this class when the flyout is open (for extra styling).</td>
-</tr>
-</tbody>
-</table>
-
-**Using Options**
+### Including
 
 ```javascript
 const AccessibleSubmenu = require('dt-flyout');
 
 const li = document.querySelector('li');
-const options = {
-  closeOnTabOut: false
-};
 const expand = AccessibleSubmenu(li, options);
 ```
 
-**Methods**
+### Standalone
 
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th style="text-align:center">Arguments</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>open</th>
-<td style="text-align:center">-</td>
-<td>Call this method of programatically open the menu.</td>
-</tr>
-<tr>
-<th>close</th>
-<td style="text-align:center">-</td>
-<td>Call this method of programatically close the menu.</td>
-</tr>
-<tr>
-<th>destroy</th>
-<td style="text-align:center">-</td>
-<td>Stops the behavior</td>
-</tr>
-</tbody>
-</table>
+It can also be used as a standalone javascript file. Find the files in `dist`.
+
+```html
+<script src="accessible-submenu.min.js"></script>
+<!-- window.AccessibleSubmenu is now defined -->
+```
+
+### Options
+
+```javascript
+AccessibleSubmenu(element, {
+  // the css seelctor for the button
+  buttonSelector: '.js-submenu-expand',
+
+  // the submenu menu
+  submenuSelector: '.js-submenu',
+
+  // apply this class to the el when submenu is open
+  stylingClass: 'js-submenu-expanded',
+
+  // apple aria-current="page" to links that point to the current page
+  applyAriaCurrent:	true,
+
+  // whether or not to close on tab out
+  closeOnTabOut: true,
+
+  // focus the first link when submenu opens
+  focusFirstLink: true,
+
+  // onClose callback
+  onClose: null,
+
+  // onOpen callback
+  onOpen: null,
+});
+```
+
+### `submenuSelector`
+`string`, defaults to `.js-submenu`
+
+Specify the CSS selector of the element you will use as the submenu (must be nested inside the root element)
+
+### `buttonSelector`
+`string`, defaults to `.js-submenu-expand`
+
+Specify the CSS selector for the "button" that you will use to toggle the submenu display (must be nested inside the root element)
+
+### `closeOnTabOut`
+`boolean`, defaults to `true`
+
+Specify whether or not the TAB key press should close the submenu if the submenu loses focus.
+
+### `focusFirstLink`
+`boolean`, defaults to `true`
+
+Whether or not to focus the first link when the flyout opens
+
+### `onOpen`
+`function`, defaults to `null`
+
+Function to run when the menu is opened. Will recieve the instance as first argument.
+
+### `onClose`
+`function`, defaults to `null`
+
+Function to run when the menu is opened. Will recieve the instance as first argument.
+
+### `stylingClass`
+
+The top level list item will get this class when the flyout is open (for extra styling)
+
+## Methods
+
+### `AccessibleSubmenu.open()`
+
+This method can be used to programatically open the menu.
+
+### `AccessibleSubmenu.close()`
+
+This method can be used to programatically close the menu.`
 
 ## Examples
 
