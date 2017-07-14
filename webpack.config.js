@@ -43,10 +43,7 @@ const config = {
     extensions: ['.js'],
   },
   devServer: {
-    contentBase: __dirname,
-    compress: true,
     port: 9000,
-    filename: 'accessible-submenu.js',
   },
 };
 
