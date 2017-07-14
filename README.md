@@ -81,7 +81,7 @@ Pass in the list item (or some root element) and options.
 ### Including
 
 ```javascript
-const AccessibleSubmenu = require('dt-flyout');
+const AccessibleSubmenu = require('accessible-submenu');
 
 const li = document.querySelector('li');
 const expand = AccessibleSubmenu(li, options);
