@@ -4,7 +4,38 @@ Make your dropdown menus accessible!
 
 Screen reader accessible, customizable behavior, and small and lightweight footprint (~2K minizipped), and best practices based on eBay's [MIND Patterns Fake Menu](https://ebay.gitbooks.io/mindpatterns/content/navigation/fakemenu.html).
 
-## Before Javascript
+## Install
+First install the module:
+```bash
+npm install accessible-submenu --save
+```
+
+## Using
+
+The function follows this signature:
+`AccessibleSubmenu(element, [options])`
+
+It can be included as a standalone file. Find the files in `dist`.
+```html
+<script src="accessible-submenu.min.js"></script>
+<!-- AccessibleSubmenu is now defined -->
+```
+
+Or, it can be included as a CommonJS or AMD module or ES2015 module:
+```javascript
+const AccessibleSubmenu = require('accessible-submenu');
+```
+
+Pass in the list item (or some root element) and options.
+
+```
+const li = document.querySelector('li');
+const expand = AccessibleSubmenu(li, options);
+```
+
+## Behavior
+
+### Before Javascript
 
 ```html
 <!-- Regular markup before javascript -->
@@ -19,7 +50,7 @@ Screen reader accessible, customizable behavior, and small and lightweight footp
 </li>
 ```
 
-## After Javascript
+### After Javascript
 
 ```html
 <!-- Markup after javascript has run -->
@@ -34,7 +65,7 @@ Screen reader accessible, customizable behavior, and small and lightweight footp
 </li>
 ```
 
-## Behavior
+### Screen Readers & Accessiblity
 
 Screen readers will announce the button as a "toggle button" and read the text "Expand Menu".
 
@@ -73,34 +104,7 @@ li > ul {
 
 Of course you can use whatever CSS you like.
 
-## Usage
-`AccessibleSubmenu(element, [options])`
-
-Pass in the list item (or some root element) and options.
-
-### Including
-First install the module.
-```bash
-npm install accessible-submenu --save
-```
-
-```javascript
-const AccessibleSubmenu = require('accessible-submenu');
-
-const li = document.querySelector('li');
-const expand = AccessibleSubmenu(li, options);
-```
-
-### Standalone
-
-It can also be used as a standalone javascript file. Find the files in `dist`.
-
-```html
-<script src="accessible-submenu.min.js"></script>
-<!-- window.AccessibleSubmenu is now defined -->
-```
-
-### Options
+## Options
 
 ```javascript
 AccessibleSubmenu(element, {
