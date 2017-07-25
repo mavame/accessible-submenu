@@ -79,6 +79,10 @@ Of course you can use whatever CSS you like.
 Pass in the list item (or some root element) and options.
 
 ### Including
+First install the module.
+```bash
+npm install accessible-submenu --save
+```
 
 ```javascript
 const AccessibleSubmenu = require('accessible-submenu');
