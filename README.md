@@ -28,7 +28,7 @@ const AccessibleSubmenu = require('accessible-submenu');
 
 Pass in the list item (or some root element) and options.
 
-```
+```javascript
 const li = document.querySelector('li');
 const expand = AccessibleSubmenu(li, options);
 ```
