@@ -2,7 +2,7 @@
   "name": "accessible-submenu",
   "version": "0.0.5",
   "description": "Make your dropdown menus accessible",
-  "main": "accessible-submenu.js",
+  "main": "dist/accessible-submenu.js",
   "scripts": {
     "example": "webpack-dev-server --watch",
     "build": "export NODE_ENV=production && webpack"
