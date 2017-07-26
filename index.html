@@ -8,7 +8,7 @@
       display: none;
     }
 
-    nav > ul > li > a[aria-expanded="true"] + ul {
+    nav > ul > li > [aria-expanded="true"] + ul {
       display: block;
     }
   </style>
@@ -18,7 +18,7 @@
     <ul>
       <li id="make-me-expand">
         <a href="http://google.com">Top search engine</a>
-        <a href="#" class="js-submenu-expand">Expand to see more search engines</a>  
+        <button class="js-submenu-expand">Expand to see more search engines</button>  
         <ul class="js-submenu">
           <li><a href="http://msn.com">MSN</a></li>
           <li><a href="http://yahoo.com">Yahoo</a></li>
