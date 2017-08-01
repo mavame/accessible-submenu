@@ -47,7 +47,7 @@ class AccessibleSubmenu {
 
     // merge options
     this.options = extend(defaults, opts, true);
-    
+
     this.dom = {
       el,
       button: el.querySelector(this.options.buttonSelector),
@@ -77,7 +77,6 @@ class AccessibleSubmenu {
     // create unique ID
     this.id = this.dom.submenu.id || this.generateUniqueID();
     this.dom.button.setAttribute('aria-expanded', false);
-    this.dom.button.href = `#${this.id}`;
     if (!this.dom.submenu.id) {
       this.dom.submenu.id = this.id;
     }
@@ -94,8 +93,6 @@ class AccessibleSubmenu {
     // SPACEBAR on button will open submenu
     this.dom.button.addEventListener('keyup', (event) => {
       if (event.keyCode === keys.space) {
-        event.preventDefault();
-        event.stopPropagation();
         this.toggleOpenClose();
       }
     });
@@ -175,11 +172,11 @@ class AccessibleSubmenu {
     this.dom.button.removeAttribute('aria-controls');
     this.dom.el.classList.remove(this.options.stylingClass);
 
-    if (this.options.closeOnTabOut) {    
+    if (this.options.closeOnTabOut) {
       document.removeEventListener('keyup', this.handleBlur.bind(this));
     }
-    
-    // callback if provided    
+
+    // callback if provided
     if (typeof this.options.onClose === 'function') {
       this.options.onClose(this);
     }
@@ -202,7 +199,7 @@ class AccessibleSubmenu {
   isExpanded() {
     return this.dom.button.getAttribute('aria-expanded') === 'true';
   }
-  
+
   // @todo fill out
   destroy() {
     // unbind all event handlers
