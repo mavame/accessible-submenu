@@ -41,7 +41,7 @@ const expand = AccessibleSubmenu(li, options);
 <!-- Regular markup before javascript -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <a href="#" class="js-submenu-expand">Expand to see more search engines</a>  
+  <button class="js-submenu-expand">Expand to see more search engines</button>  
   <ul class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
@@ -56,7 +56,7 @@ const expand = AccessibleSubmenu(li, options);
 <!-- Markup after javascript has run -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <a role="button" href="#" aria-expanded="false" class="js-submenu-expand">Expand Menu</a>
+  <button aria-expanded="false" class="js-submenu-expand">Expand to see more search engines</button>
   <ul id="js-submenu-8j6kl" class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
@@ -79,7 +79,7 @@ When the expandable menu should be open, the button will have get `aria-expanded
 <!-- Open menu state -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <a role="button" href="#" aria-expanded="true" aria-controls="sub-menu-8j6kl" class="js-submenu-expand">Expand Menu</a>
+  <button aria-expanded="true" aria-controls="sub-menu-8j6kl" class="js-submenu-expand">Expand to see more search engines</button>
   <ul id="js-submenu-8j6kl" class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
@@ -118,7 +118,7 @@ AccessibleSubmenu(element, {
   stylingClass: 'js-submenu-expanded',
 
   // apple aria-current="page" to links that point to the current page
-  applyAriaCurrent:	true,
+  applyAriaCurrent: true,
 
   // whether or not to close on tab out
   closeOnTabOut: true,
