@@ -235,7 +235,6 @@ var AccessibleSubmenu = function () {
       // create unique ID
       this.id = this.dom.submenu.id || this.generateUniqueID();
       this.dom.button.setAttribute('aria-expanded', false);
-      this.dom.button.href = '#' + this.id;
       if (!this.dom.submenu.id) {
         this.dom.submenu.id = this.id;
       }
@@ -257,8 +256,6 @@ var AccessibleSubmenu = function () {
       // SPACEBAR on button will open submenu
       this.dom.button.addEventListener('keyup', function (event) {
         if (event.keyCode === keys.space) {
-          event.preventDefault();
-          event.stopPropagation();
           _this.toggleOpenClose();
         }
       });
@@ -353,7 +350,7 @@ var AccessibleSubmenu = function () {
         document.removeEventListener('keyup', this.handleBlur.bind(this));
       }
 
-      // callback if provided    
+      // callback if provided
       if (typeof this.options.onClose === 'function') {
         this.options.onClose(this);
       }
