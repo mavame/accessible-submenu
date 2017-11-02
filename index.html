@@ -14,11 +14,24 @@
   </style>
 </head>
 <body>
+  <h2>Here's an example of a basic navigation item with a submenu</h2>
   <nav>
     <ul>
-      <li id="make-me-expand">
+      <li class="make-me-expand">
         <a href="http://google.com">Top search engine</a>
-        <button class="js-submenu-expand">Expand to see more search engines</button>  
+        <button class="js-submenu-expand">Expand to see more search engines</button>
+        <ul class="js-submenu">
+          <li><a href="http://msn.com">MSN</a></li>
+          <li><a href="http://yahoo.com">Yahoo</a></li>
+          <li><a href="http://bing.com">Bing</a></li>
+        </ul>
+      </li>
+    </ul>
+    <h2>Here's an example of a navigation with a submenu opened by default</h2>
+    <ul>
+      <li class="make-me-expand">
+        <a href="http://google.com">Top search engine</a>
+        <button class="js-submenu-expand" aria-expanded="true">Expand to see more search engines</button>
         <ul class="js-submenu">
           <li><a href="http://msn.com">MSN</a></li>
           <li><a href="http://yahoo.com">Yahoo</a></li>
@@ -29,7 +42,10 @@
   </nav>
   <script src="dist/accessible-submenu.min.js"></script>
   <script>
-      var expand = AccessibleSubmenu(document.getElementById('make-me-expand'));
+    var els = document.querySelectorAll('.make-me-expand');
+    els.forEach(el => {
+      AccessibleSubmenu(el);
+    });
   </script>
 </body>
 </html>

@@ -76,7 +76,9 @@ class AccessibleSubmenu {
     // to the sub menu with the aria attributes and IDs
     // create unique ID
     this.id = this.dom.submenu.id || this.generateUniqueID();
-    this.dom.button.setAttribute('aria-expanded', false);
+    if (!this.dom.button.getAttribute('aria-expanded')) {
+      this.dom.button.setAttribute('aria-expanded', false);
+    }
     if (!this.dom.submenu.id) {
       this.dom.submenu.id = this.id;
     }
