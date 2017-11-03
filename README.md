@@ -12,8 +12,8 @@ npm install accessible-submenu --save
 
 ## Using
 
-The function follows this signature:
-`AccessibleSubmenu(element, [options])`
+The class can be used as follows:
+`new AccessibleSubmenu(element, [options])`
 
 It can be included as a standalone file. Find the files in `dist`.
 ```html
@@ -23,14 +23,14 @@ It can be included as a standalone file. Find the files in `dist`.
 
 Or, it can be included as a CommonJS or AMD module or ES2015 module:
 ```javascript
-const AccessibleSubmenu = require('accessible-submenu');
+import AccessibleSubmenu from 'accessible-submenu';
 ```
 
 Pass in the list item (or some root element) and options.
 
 ```javascript
 const li = document.querySelector('li');
-const expand = AccessibleSubmenu(li, options);
+const expand = new AccessibleSubmenu(li, options);
 ```
 
 ## Behavior
@@ -65,13 +65,13 @@ const expand = AccessibleSubmenu(li, options);
 </li>
 ```
 
-### Screen Readers & Accessiblity
+### Screen Readers & Accessibility
 
 Screen readers will announce the button as a "toggle button" and read the text "Expand Menu".
 
-Pressing ENTER or SPACEBAR on the button (or clicking on the button) will expand the flyout.
+Pressing ENTER or SPACEBAR on the button (or clicking on the button) will expand the submenu.
 
-Hitting ESC while the flyout is open will close the flyout.
+Hitting ESC while the submenu is open will close the submenu.
 
 When the expandable menu should be open, the button will have get `aria-expanded="true"` attribute. Also, it's `aria-controls` attribute will be present.
 
@@ -88,15 +88,15 @@ When the expandable menu should be open, the button will have get `aria-expanded
 </li>
 ```
 
-**You should use your own CSS to show the flyout.**
+**You should use your own CSS to show the submenu.**
 
 ```css
-/* closed flyout */
+/* closed submenu */
 li > ul {
   display: none;
 }
 
-/* expanded flyout */
+/* expanded submenu */
 [aria-expanded="true"] + ul {
   display: block;
 }
@@ -107,8 +107,8 @@ Of course you can use whatever CSS you like.
 ## Options
 
 ```javascript
-AccessibleSubmenu(element, {
-  // the css seelctor for the button
+new AccessibleSubmenu(element, {
+  // the css selector for the button
   buttonSelector: '.js-submenu-expand',
 
   // the submenu menu
@@ -152,31 +152,31 @@ Specify whether or not the TAB key press should close the submenu if the submenu
 ### `focusFirstLink`
 `boolean`, defaults to `true`
 
-Whether or not to focus the first link when the flyout opens
+Whether or not to focus the first link when the submenu opens
 
 ### `onOpen`
 `function`, defaults to `null`
 
-Function to run when the menu is opened. Will recieve the instance as first argument.
+Function to run when the menu is opened. Will receive the instance as first argument.
 
 ### `onClose`
 `function`, defaults to `null`
 
-Function to run when the menu is opened. Will recieve the instance as first argument.
+Function to run when the menu is opened. Will receive the instance as first argument.
 
 ### `stylingClass`
 
-The top level list item will get this class when the flyout is open (for extra styling)
+The top level list item will get this class when the submenu is open (for extra styling)
 
 ## Methods
 
 ### `AccessibleSubmenu.open()`
 
-This method can be used to programatically open the menu.
+This method can be used to programmatically open the menu.
 
 ### `AccessibleSubmenu.close()`
 
-This method can be used to programatically close the menu.`
+This method can be used to programmatically close the menu.`
 
 ## Examples
 

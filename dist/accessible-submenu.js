@@ -80,11 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var _isElement = __webpack_require__(1);
-
-var _isElement2 = _interopRequireDefault(_isElement);
-
-var _AccessibleSubmenu = __webpack_require__(2);
+var _AccessibleSubmenu = __webpack_require__(1);
 
 var _AccessibleSubmenu2 = _interopRequireDefault(_AccessibleSubmenu);
 
@@ -93,15 +89,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Main export.
  */
-module.exports = function (element, options) {
-  // require argument
-  if (!(0, _isElement2.default)(element)) {
-    console.warn('accessible-submenu requires a valid HTMLElement.', element);
-    return;
-  }
-
-  return new _AccessibleSubmenu2.default(element, options);
-};
+module.exports = _AccessibleSubmenu2.default;
 
 /***/ }),
 /* 1 */
@@ -114,41 +102,18 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = isElement;
-/**
- * Returns true if object is an HTMLElement
- * @param {Object} o
- */
-function isElement(o) {
-  return (typeof HTMLElement === "undefined" ? "undefined" : _typeof(HTMLElement)) === "object" ? o instanceof HTMLElement : //DOM2
-  o && (typeof o === "undefined" ? "undefined" : _typeof(o)) === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName === "string";
-}
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // expandableMenus.js
 
 
-var _randomId = __webpack_require__(3);
+var _randomId = __webpack_require__(2);
 
 var _randomId2 = _interopRequireDefault(_randomId);
 
-var _extend = __webpack_require__(4);
+var _extend = __webpack_require__(3);
 
 var _extend2 = _interopRequireDefault(_extend);
 
-var _dom = __webpack_require__(5);
+var _dom = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -398,7 +363,7 @@ var AccessibleSubmenu = function () {
 exports.default = AccessibleSubmenu;
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
@@ -439,7 +404,7 @@ exports.default = AccessibleSubmenu;
 })();
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -480,7 +445,7 @@ exports.default = function (to, from, overwrite) {
 ;
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
