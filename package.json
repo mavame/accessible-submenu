@@ -1,6 +1,6 @@
 {
   "name": "accessible-submenu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make your dropdown menus accessible",
   "main": "dist/accessible-submenu.js",
   "scripts": {
