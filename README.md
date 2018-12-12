@@ -79,7 +79,7 @@ When the expandable menu should be open, the button will have get `aria-expanded
 <!-- Open menu state -->
 <li>
   <a href="http://google.com">Top search engine</a>
-  <button aria-expanded="true" aria-controls="sub-menu-8j6kl" class="js-submenu-expand">Expand to see more search engines</button>
+  <button aria-expanded="true" aria-controls="js-submenu-8j6kl" class="js-submenu-expand">Expand to see more search engines</button>
   <ul id="js-submenu-8j6kl" class="js-submenu">
     <li><a href="http://msn.com">MSN</a></li>
     <li><a href="http://yahoo.com">Yahoo</a></li>
